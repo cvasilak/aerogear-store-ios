@@ -79,7 +79,7 @@
         _baseURL = [config baseURL].absoluteString;
         _tokenHeaderName = [config tokenHeaderName];
         
-        _restClient = [AGIncrementalStoreHttpClient clientFor:[config baseURL]];
+        _restClient = [AGIncrementalStoreHttpClient clientFor:[config baseURL] authModule:nil];
         _restClient.parameterEncoding = AFJSONParameterEncoding;
     }
 
