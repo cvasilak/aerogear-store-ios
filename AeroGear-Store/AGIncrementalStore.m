@@ -45,8 +45,7 @@
 #pragma mark - AGIncrementalStoreAdapter
 
 -(id<AGAuthenticationModule>) authModule {
-    @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: -authModule. Must be overridden in a subclass", nil) userInfo:nil]);
-    
+    return nil;
 }
 
 -(NSURL *) baseURL {
