@@ -22,6 +22,9 @@
 		A04CB30716779293005D5CF0 /* AGIncrementalStoreHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A04CB30616779292005D5CF0 /* AGIncrementalStoreHttpClient.m */; };
 		A04CB30D16779C4D005D5CF0 /* AGTestStoreAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A04CB30C16779C4D005D5CF0 /* AGTestStoreAdapter.m */; };
 		A04CB31016779D67005D5CF0 /* AGCustomStoreAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A04CB30F16779D67005D5CF0 /* AGCustomStoreAdapterTests.m */; };
+		A085F07F167F099900601C6C /* AGAuthConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A085F078167F099900601C6C /* AGAuthConfiguration.m */; };
+		A085F080167F099900601C6C /* AGAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = A085F07C167F099900601C6C /* AGAuthenticator.m */; };
+		A085F081167F099900601C6C /* AGRestAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = A085F07E167F099900601C6C /* AGRestAuthentication.m */; };
 		B5F5CA11D6404282A4CAD974 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06439B77C3BB4176AAF6B4F7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,15 @@
 		A04CB30B16779C4D005D5CF0 /* AGTestStoreAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTestStoreAdapter.h; sourceTree = "<group>"; };
 		A04CB30C16779C4D005D5CF0 /* AGTestStoreAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTestStoreAdapter.m; sourceTree = "<group>"; };
 		A04CB30F16779D67005D5CF0 /* AGCustomStoreAdapterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCustomStoreAdapterTests.m; sourceTree = "<group>"; };
+		A085F076167F099900601C6C /* AGAuthConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAuthConfig.h; sourceTree = "<group>"; };
+		A085F077167F099900601C6C /* AGAuthConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAuthConfiguration.h; sourceTree = "<group>"; };
+		A085F078167F099900601C6C /* AGAuthConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAuthConfiguration.m; sourceTree = "<group>"; };
+		A085F079167F099900601C6C /* AGAuthenticationModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAuthenticationModule.h; sourceTree = "<group>"; };
+		A085F07A167F099900601C6C /* AGAuthenticationModuleAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAuthenticationModuleAdapter.h; sourceTree = "<group>"; };
+		A085F07B167F099900601C6C /* AGAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAuthenticator.h; sourceTree = "<group>"; };
+		A085F07C167F099900601C6C /* AGAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAuthenticator.m; sourceTree = "<group>"; };
+		A085F07D167F099900601C6C /* AGRestAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRestAuthentication.h; sourceTree = "<group>"; };
+		A085F07E167F099900601C6C /* AGRestAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRestAuthentication.m; sourceTree = "<group>"; };
 		B0CB3339F2AF4CF991D4E07A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -141,6 +153,7 @@
 		A04CB2C616777532005D5CF0 /* AeroGear-Store */ = {
 			isa = PBXGroup;
 			children = (
+				A085F074167F097F00601C6C /* Security */,
 				A04CB2C716777532005D5CF0 /* Supporting Files */,
 				A04CB2F016777A5C005D5CF0 /* AGIncrementalStore.h */,
 				A04CB2F116777A5C005D5CF0 /* AGIncrementalStore.m */,
@@ -178,6 +191,22 @@
 				A04CB2DE16777532005D5CF0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A085F074167F097F00601C6C /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				A085F076167F099900601C6C /* AGAuthConfig.h */,
+				A085F077167F099900601C6C /* AGAuthConfiguration.h */,
+				A085F078167F099900601C6C /* AGAuthConfiguration.m */,
+				A085F079167F099900601C6C /* AGAuthenticationModule.h */,
+				A085F07A167F099900601C6C /* AGAuthenticationModuleAdapter.h */,
+				A085F07B167F099900601C6C /* AGAuthenticator.h */,
+				A085F07C167F099900601C6C /* AGAuthenticator.m */,
+				A085F07D167F099900601C6C /* AGRestAuthentication.h */,
+				A085F07E167F099900601C6C /* AGRestAuthentication.m */,
+			);
+			name = Security;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +339,9 @@
 			files = (
 				A04CB2F216777A5C005D5CF0 /* AGIncrementalStore.m in Sources */,
 				A04CB30716779293005D5CF0 /* AGIncrementalStoreHttpClient.m in Sources */,
+				A085F07F167F099900601C6C /* AGAuthConfiguration.m in Sources */,
+				A085F080167F099900601C6C /* AGAuthenticator.m in Sources */,
+				A085F081167F099900601C6C /* AGRestAuthentication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

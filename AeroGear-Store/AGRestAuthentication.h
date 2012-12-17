@@ -17,15 +17,14 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AFRESTClient.h"
-#import "AFIncrementalStore.h"
+#import "AGAuthConfig.h"
+#import "AGAuthenticationModuleAdapter.h"
 
-#import "AGAuthenticationModule.h"
+@interface AGRestAuthentication : NSObject <AGAuthenticationModuleAdapter>
 
-@interface AGIncrementalStoreHttpClient : AFRESTClient <AFIncrementalStoreHTTPClient>
 
-//+ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL;
-+ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL authModule:(id<AGAuthenticationModule>) authModule;
+-(id) initWithConfig:(id<AGAuthConfig>) authConfig;
++(id) moduleWithConfig:(id<AGAuthConfig>) authConfig;
 
 
 @end

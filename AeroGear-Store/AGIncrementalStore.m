@@ -39,10 +39,15 @@
 - (id <AFIncrementalStoreHTTPClient>)HTTPClient {
     
     // THIS needs to be initialized ...............
-    return [AGIncrementalStoreHttpClient clientFor:[self baseURL]];
+    return [AGIncrementalStoreHttpClient clientFor:[self baseURL] authModule:[self authModule]];
 }
 
 #pragma mark - AGIncrementalStoreAdapter
+
+-(id<AGAuthenticationModule>) authModule {
+    @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: -authModule. Must be overridden in a subclass", nil) userInfo:nil]);
+    
+}
 
 -(NSURL *) baseURL {
     @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: -baseURL. Must be overridden in a subclass", nil) userInfo:nil]);

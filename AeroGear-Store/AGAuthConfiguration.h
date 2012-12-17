@@ -17,15 +17,21 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AFRESTClient.h"
-#import "AFIncrementalStore.h"
+#import "AGAuthConfig.h"
 
-#import "AGAuthenticationModule.h"
+/**
+ * The internal implementation of the AGAuthConfig to configure AGAuthenticationModule objects.
+ */
+@interface AGAuthConfiguration : NSObject<AGAuthConfig>
 
-@interface AGIncrementalStoreHttpClient : AFRESTClient <AFIncrementalStoreHTTPClient>
-
-//+ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL;
-+ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL authModule:(id<AGAuthenticationModule>) authModule;
+// private getters...
+-(NSString*) name;
+-(NSString*) type;
+-(NSURL*) baseURL;
+-(NSString*) loginEndpoint;
+-(NSString*) logoutEndpoint;
+-(NSString*) enrollEndpoint;
+-(NSString*) tokenHeaderName;
 
 
 @end

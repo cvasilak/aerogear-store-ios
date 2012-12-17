@@ -19,10 +19,12 @@
 #import <Foundation/Foundation.h>
 #import "AFIncrementalStore.h"
 
+#import "AGAuthenticationModule.h"
 
 @protocol AGIncrementalStoreAdapter <NSObject>
 
 -(NSURL *) baseURL;
+-(id<AGAuthenticationModule>) authModule;
 +(NSString *) modelName;
 +(NSString *) extension;
 @end

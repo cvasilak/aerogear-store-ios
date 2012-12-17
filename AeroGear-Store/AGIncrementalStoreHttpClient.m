@@ -18,22 +18,55 @@
 
 #import "AGIncrementalStoreHttpClient.h"
 
-@implementation AGIncrementalStoreHttpClient
+#import "AGAuthenticationModuleAdapter.h"
 
-+ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL {
-    return [[self alloc] initWithBaseURL:baseURL];
+@implementation AGIncrementalStoreHttpClient {
+     id<AGAuthenticationModuleAdapter> _authModule;
 }
 
-- (id)initWithBaseURL:(NSURL *)url {
++ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL  authModule:(id<AGAuthenticationModule>) authModule{
+    return [[self alloc] initWithBaseURL:baseURL authModule:authModule];
+}
+
+- (id)initWithBaseURL:(NSURL *)url authModule:(id<AGAuthenticationModule>) authModule {
     self = [super initWithBaseURL:url];
     if (!self) {
         return nil;
     }
     
+    _authModule = (id<AGAuthenticationModuleAdapter>) authModule;
+
     [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [self setDefaultHeader:@"Accept" value:@"application/json"];
     
     return self;
+}
+
+
+// override from AFNetworking to apply auth:
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method
+                                      path:(NSString *)path
+                                parameters:(NSDictionary *)parameters
+{
+    // try to add auth.token:
+    [self applyAuthToken];
+    
+    
+    // invoke the 'requestWithMethod:path:parameters:' from AFNetworking:
+    NSMutableURLRequest* req = [super requestWithMethod:method path:path parameters:parameters];
+    
+    // disable the default cookie handling in the override:
+    [req setHTTPShouldHandleCookies:NO];
+    
+    
+    return req;
+}
+
+
+-(void) applyAuthToken {
+    if ([_authModule isAuthenticated]) {
+        [self setDefaultHeader:@"Auth-Token" value:[_authModule authToken]];
+    }
 }
 
 @end

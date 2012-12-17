@@ -20,5 +20,7 @@
 #define _AEROGEAR-STORE_
 
 #import "AGIncrementalStore.h"
+#import "AGIncrementalStoreHttpClient.h"
+
 
 #endif /* _AEROGEAR-STORE */
