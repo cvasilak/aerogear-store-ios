@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3ECC890A35C54189AA77E1D0 /* libPods-AeroGear-StoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 849FA5C456904C3098E2221A /* libPods-AeroGear-StoreTests.a */; };
+		A025D6CF167F27AF0064800F /* AGCoreDataPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A025D6CE167F27AF0064800F /* AGCoreDataPlugin.m */; };
 		A04CB2C516777532005D5CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2C416777532005D5CF0 /* Foundation.framework */; };
 		A04CB2D416777532005D5CF0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2D316777532005D5CF0 /* SenTestingKit.framework */; };
 		A04CB2D616777532005D5CF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2D516777532005D5CF0 /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		06439B77C3BB4176AAF6B4F7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2753041E178E4C6C9C6E138F /* Pods-AeroGear-StoreTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroGear-StoreTests.xcconfig"; path = "Pods/Pods-AeroGear-StoreTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		849FA5C456904C3098E2221A /* libPods-AeroGear-StoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AeroGear-StoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A025D6CD167F27AF0064800F /* AGCoreDataPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCoreDataPlugin.h; sourceTree = "<group>"; };
+		A025D6CE167F27AF0064800F /* AGCoreDataPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCoreDataPlugin.m; sourceTree = "<group>"; };
 		A04CB2C116777532005D5CF0 /* libAeroGear-Store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libAeroGear-Store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04CB2C416777532005D5CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A04CB2C816777532005D5CF0 /* AeroGear-Store-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AeroGear-Store-Prefix.pch"; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				A04CB30516779292005D5CF0 /* AGIncrementalStoreHttpClient.h */,
 				A04CB30616779292005D5CF0 /* AGIncrementalStoreHttpClient.m */,
 				A04CB30016777CCB005D5CF0 /* AeroGearStore.h */,
+				A025D6CD167F27AF0064800F /* AGCoreDataPlugin.h */,
+				A025D6CE167F27AF0064800F /* AGCoreDataPlugin.m */,
 			);
 			path = "AeroGear-Store";
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				A085F07F167F099900601C6C /* AGAuthConfiguration.m in Sources */,
 				A085F080167F099900601C6C /* AGAuthenticator.m in Sources */,
 				A085F081167F099900601C6C /* AGRestAuthentication.m in Sources */,
+				A025D6CF167F27AF0064800F /* AGCoreDataPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

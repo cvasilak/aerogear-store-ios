@@ -87,7 +87,7 @@
 -(void) testIncHttpClient {
     
     NSURL* testURL = [NSURL URLWithString:@"http://todo-aerogear.rhcloud.com/todo-server/"];
-    AGIncrementalStoreHttpClient* httpClient = [AGIncrementalStoreHttpClient clientFor:testURL];
+    AGIncrementalStoreHttpClient* httpClient = [AGIncrementalStoreHttpClient clientFor:testURL authModule:nil];
     
     [httpClient getPath:@"tasks" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"DA -> %@", responseObject);

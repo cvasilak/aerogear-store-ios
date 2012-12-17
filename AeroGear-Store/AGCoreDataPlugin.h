@@ -16,13 +16,21 @@
  * limitations under the License.
  */
 
-#ifndef _AEROGEAR-STORE_
-#define _AEROGEAR-STORE_
+#import <Foundation/Foundation.h>
 
 #import "AGIncrementalStore.h"
-#import "AGIncrementalStoreHttpClient.h"
+#import <CoreData/CoreData.h>
 
-#import "AGCoreDataPlugin.h"
+@interface AGCoreDataPlugin : AGIncrementalStore<AGIncrementalStoreAdapter>
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+//factory
++ (AGCoreDataPlugin *)sharedClient:(id<AGAuthenticationModule>) authenticationModule model:(NSString *) model baseURL:(NSURL *) baseURL;
+
++ (AGCoreDataPlugin *)sharedClient;
 
 
-#endif /* _AEROGEAR-STORE */
+@end
