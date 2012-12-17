@@ -18,12 +18,15 @@
 
 #import "AGCoreDataPlugin.h"
 
-@implementation AGCoreDataPlugin
+@implementation AGCoreDataPlugin {
+    NSManagedObjectModel *_managedObjectModel;
+    // TODO: perhaps the 'storeCoordinator' should be public:
+    NSPersistentStoreCoordinator *_persistentStoreCoordinator;
+}
 
-// core data hooks
+
+// core data, public hooks
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 //static:
 id<AGAuthenticationModule> _authenticationModule;
@@ -78,7 +81,7 @@ NSURL *_baseURL;
     
     
     // get the LIB persStoreCoordinator:
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    NSPersistentStoreCoordinator *coordinator = [self storeCoordinator];
     if (coordinator != nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
@@ -90,7 +93,7 @@ NSURL *_baseURL;
 
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+- (NSPersistentStoreCoordinator *)storeCoordinator {
     // B
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
@@ -100,11 +103,8 @@ NSURL *_baseURL;
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     
-    AGCoreDataPlugin *incrementalStore = (AGCoreDataPlugin *)[_persistentStoreCoordinator addPersistentStoreWithType:
-                                                        
-                                                        
-                                                        //////////////////////////// APP CODE?!?  AeroGearIncStore............
-                                                        [AGCoreDataPlugin type] configuration:nil URL:nil options:nil error:nil];
+    AGIncrementalStore *incrementalStore = (AGIncrementalStore *)[_persistentStoreCoordinator addPersistentStoreWithType:
+           [self type] configuration:nil URL:nil options:nil error:nil];
     
     
     NSError *error = nil;
@@ -112,8 +112,6 @@ NSURL *_baseURL;
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    
-    /////////////  NSLog(@"SQLite URL: %@", [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Songs.sqlite"]);
     
     return _persistentStoreCoordinator;
 }
@@ -128,13 +126,11 @@ NSURL *_baseURL;
     }
     
     //////////////// APP: Model Name:
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:[AGCoreDataPlugin modelName] withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:_modelName withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     return _managedObjectModel;
 }
-
-
 
 
 @end

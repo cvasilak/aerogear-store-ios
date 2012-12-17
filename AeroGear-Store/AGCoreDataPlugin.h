@@ -24,8 +24,6 @@
 @interface AGCoreDataPlugin : AGIncrementalStore<AGIncrementalStoreAdapter>
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 //factory
 + (AGCoreDataPlugin *)sharedClient:(id<AGAuthenticationModule>) authenticationModule model:(NSString *) model baseURL:(NSURL *) baseURL;
