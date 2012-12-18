@@ -18,7 +18,7 @@
 #
 Pod::Spec.new do |s|
   s.name         = "AeroGear-Store"
-  s.version      = "0.0.2"
+  s.version      = "1.0.0.Alpha1"
   s.summary      = "CoreData Plugin for AeroGear."
   s.homepage     = "https://github.com/aerogear/aerogear-store-ios"
   s.license      = 'Apache License, Version 2.0'
