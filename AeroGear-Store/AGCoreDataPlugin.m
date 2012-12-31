@@ -81,7 +81,7 @@ NSURL *_baseURL;
     
     
     // get the LIB persStoreCoordinator:
-    NSPersistentStoreCoordinator *coordinator = [self storeCoordinator];
+    NSPersistentStoreCoordinator *coordinator = [self storeCoordinator2];
     if (coordinator != nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
@@ -93,7 +93,7 @@ NSURL *_baseURL;
 
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
-- (NSPersistentStoreCoordinator *)storeCoordinator {
+- (NSPersistentStoreCoordinator *)storeCoordinator2 {
     // B
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;

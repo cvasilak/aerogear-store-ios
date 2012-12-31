@@ -31,26 +31,27 @@
     return NSStringFromClass(self);
 }
 
-+ (NSManagedObjectModel *)model {
-    return [[NSManagedObjectModel alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:[self modelName] withExtension:[self extension]]];
-}
+//+ (NSManagedObjectModel *)model {
+//    return [[NSManagedObjectModel alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:[self modelName] withExtension:[self extension]]];
+//}
 
 // it's a getter of AFIncStore...
 - (id <AFIncrementalStoreHTTPClient>)HTTPClient {
     
     // THIS needs to be initialized ...............
-    return [AGIncrementalStoreHttpClient clientFor:[self baseURL] authModule:[self authModule]];
+    // return [AGIncrementalStoreHttpClient clientFor:[self baseURL] authModule:[self authModule]];
+    return [AGIncrementalStoreHttpClient clientFor:__baseURL authModule:__authMod];
 }
 
 #pragma mark - AGIncrementalStoreAdapter
 
--(id<AGAuthenticationModule>) authModule {
-    return nil;
-}
-
--(NSURL *) baseURL {
-    @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: -baseURL. Must be overridden in a subclass", nil) userInfo:nil]);
-}
+//-(id<AGAuthenticationModule>) authModule {
+//    return nil;
+//}
+//
+//-(NSURL *) baseURL {
+//    @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: -baseURL. Must be overridden in a subclass", nil) userInfo:nil]);
+//}
 
 +(NSString *) modelName {
     @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: +modelName. Must be overridden in a subclass", nil) userInfo:nil]);
@@ -59,5 +60,34 @@
 +(NSString *) extension {
     @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: +extension. Must be overridden in a subclass", nil) userInfo:nil]);
 }
+
+// mega hack:
+NSURL *__baseURL;
++(void) setBaseURL:(NSURL *) baseURL {
+    __baseURL = baseURL;
+}
+
+id<AGAuthenticationModule> __authMod;
++(void) setAuthModule:(id<AGAuthenticationModule>) authMod {
+    __authMod = authMod;
+}
+
+-(id<AGAuthenticationModule>) authModule {
+    return __authMod;
+}
+
+-(NSURL *) baseURL {
+    return __baseURL;
+}
+
+NSManagedObjectModel *__managedObjectModel;
++(void)setModel:(NSManagedObjectModel *)managedObjectModel {
+    __managedObjectModel = managedObjectModel;
+}
++ (NSManagedObjectModel *)model {
+    return __managedObjectModel;
+}
+
+
 
 @end
