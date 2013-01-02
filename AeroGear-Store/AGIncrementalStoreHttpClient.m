@@ -59,11 +59,8 @@
     // invoke the 'requestWithMethod:path:parameters:' from AFNetworking:
     NSMutableURLRequest* req = [super requestWithMethod:method path:path parameters:parameters];
     
-    NSString *urrrrrl = [req URL].absoluteString;
-    
     // disable the default cookie handling in the override:
     [req setHTTPShouldHandleCookies:NO];
-    
     
     return req;
 }

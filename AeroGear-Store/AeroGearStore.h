@@ -19,10 +19,10 @@
 #ifndef _AEROGEAR-STORE_
 #define _AEROGEAR-STORE_
 
-#import "AGIncrementalStore.h"
-#import "AGIncrementalStoreHttpClient.h"
+//#import "AGIncrementalStore.h"
+//#import "AGIncrementalStoreHttpClient.h"
 
-#import "AGCoreDataPlugin.h"
+#import "AGCoreDataHelper.h"
 
 
 #endif /* _AEROGEAR-STORE */

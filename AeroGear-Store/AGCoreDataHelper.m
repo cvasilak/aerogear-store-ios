@@ -17,8 +17,8 @@
  */
 
 #import "AGCoreDataHelper.h"
-
 #import "AGIncrementalStore.h"
+#import "AGCoreDataConfiguration.h"
 
 @interface AGCoreDataHelper ()
 
@@ -43,17 +43,21 @@
 //    // throw NSException that this is not the designated initializer..
 //}
 
--(id)initWithModel:(NSManagedObjectModel *)managedObjectModel baseURL:(NSURL *)baseURL authMod:(id<AGAuthenticationModule>)authMod {
-    
+-(id) initWithConfig:(void (^)(id<AGCoreDataConfig> config)) config {
     self = [super init];
     if (self) {
-        _managedObjectModel = managedObjectModel;
-        _baseURL = baseURL;
-        _authMod = authMod;
+        AGCoreDataConfiguration *coreDataConfig = [[AGCoreDataConfiguration alloc] init];
+    
+        if (config) {
+            config(coreDataConfig);
+        }
+        _managedObjectModel = coreDataConfig.managedObjectModel;
+        _baseURL = coreDataConfig.baseURL;
+        _authMod = coreDataConfig.authMod;
         
         // awful setters:
         [AGIncrementalStore setModel:_managedObjectModel];
-        [AGIncrementalStore setBaseURL:baseURL];
+        [AGIncrementalStore setBaseURL:_baseURL];
         [AGIncrementalStore setAuthModule:_authMod];
     }
     return self;

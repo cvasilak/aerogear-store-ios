@@ -20,11 +20,12 @@
 #import <CoreData/CoreData.h>
 
 #import "AGAuthenticationModule.h"
+#import "AGCoreDataConfig.h"
 
 @interface AGCoreDataHelper : NSObject
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
--(id) initWithModel:(NSManagedObjectModel *)managedObjectModel baseURL:(NSURL *) baseURL authMod:(id<AGAuthenticationModule>) authMod;
+-(id) initWithConfig:(void (^)(id<AGCoreDataConfig> config)) config;
 
 @end

@@ -8,23 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		3ECC890A35C54189AA77E1D0 /* libPods-AeroGear-StoreTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 849FA5C456904C3098E2221A /* libPods-AeroGear-StoreTests.a */; };
-		A025D6CF167F27AF0064800F /* AGCoreDataPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A025D6CE167F27AF0064800F /* AGCoreDataPlugin.m */; };
 		A036A387168F56BC00236AD3 /* AGCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A036A386168F56BC00236AD3 /* AGCoreDataHelper.m */; };
 		A036A38B168F5FDC00236AD3 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A036A389168F5FDC00236AD3 /* TestModel.xcdatamodeld */; };
 		A036A39E1690989600236AD3 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = A036A39D1690989600236AD3 /* Tag.m */; };
+		A036A3C716943ABF00236AD3 /* AGCoreDataConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A036A3C616943ABF00236AD3 /* AGCoreDataConfiguration.m */; };
 		A04CB2C516777532005D5CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2C416777532005D5CF0 /* Foundation.framework */; };
 		A04CB2D416777532005D5CF0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2D316777532005D5CF0 /* SenTestingKit.framework */; };
 		A04CB2D616777532005D5CF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2D516777532005D5CF0 /* UIKit.framework */; };
 		A04CB2D716777532005D5CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2C416777532005D5CF0 /* Foundation.framework */; };
 		A04CB2DA16777532005D5CF0 /* libAeroGear-Store.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2C116777532005D5CF0 /* libAeroGear-Store.a */; };
 		A04CB2E016777532005D5CF0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A04CB2DE16777532005D5CF0 /* InfoPlist.strings */; };
-		A04CB2E316777532005D5CF0 /* AeroGear_StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A04CB2E216777532005D5CF0 /* AeroGear_StoreTests.m */; };
 		A04CB2F216777A5C005D5CF0 /* AGIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A04CB2F116777A5C005D5CF0 /* AGIncrementalStore.m */; };
 		A04CB2FA16777C0B005D5CF0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2F916777C0B005D5CF0 /* CoreData.framework */; };
 		A04CB2FD16777C18005D5CF0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2FC16777C18005D5CF0 /* SystemConfiguration.framework */; };
 		A04CB2FF16777C22005D5CF0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2FE16777C22005D5CF0 /* MobileCoreServices.framework */; };
 		A04CB30716779293005D5CF0 /* AGIncrementalStoreHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A04CB30616779292005D5CF0 /* AGIncrementalStoreHttpClient.m */; };
-		A04CB30D16779C4D005D5CF0 /* AGTestStoreAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A04CB30C16779C4D005D5CF0 /* AGTestStoreAdapter.m */; };
 		A04CB31016779D67005D5CF0 /* AGCustomStoreAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A04CB30F16779D67005D5CF0 /* AGCustomStoreAdapterTests.m */; };
 		A085F07F167F099900601C6C /* AGAuthConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A085F078167F099900601C6C /* AGAuthConfiguration.m */; };
 		A085F080167F099900601C6C /* AGAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = A085F07C167F099900601C6C /* AGAuthenticator.m */; };
@@ -58,13 +56,14 @@
 		06439B77C3BB4176AAF6B4F7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2753041E178E4C6C9C6E138F /* Pods-AeroGear-StoreTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroGear-StoreTests.xcconfig"; path = "Pods/Pods-AeroGear-StoreTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		849FA5C456904C3098E2221A /* libPods-AeroGear-StoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AeroGear-StoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A025D6CD167F27AF0064800F /* AGCoreDataPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCoreDataPlugin.h; sourceTree = "<group>"; };
-		A025D6CE167F27AF0064800F /* AGCoreDataPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCoreDataPlugin.m; sourceTree = "<group>"; };
 		A036A385168F56BB00236AD3 /* AGCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCoreDataHelper.h; sourceTree = "<group>"; };
 		A036A386168F56BC00236AD3 /* AGCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCoreDataHelper.m; sourceTree = "<group>"; };
 		A036A38A168F5FDC00236AD3 /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
 		A036A39C1690989600236AD3 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
 		A036A39D1690989600236AD3 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		A036A3C316943A9700236AD3 /* AGCoreDataConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCoreDataConfig.h; sourceTree = "<group>"; };
+		A036A3C516943ABF00236AD3 /* AGCoreDataConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGCoreDataConfiguration.h; sourceTree = "<group>"; };
+		A036A3C616943ABF00236AD3 /* AGCoreDataConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCoreDataConfiguration.m; sourceTree = "<group>"; };
 		A04CB2C116777532005D5CF0 /* libAeroGear-Store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libAeroGear-Store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04CB2C416777532005D5CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A04CB2C816777532005D5CF0 /* AeroGear-Store-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AeroGear-Store-Prefix.pch"; sourceTree = "<group>"; };
@@ -73,7 +72,6 @@
 		A04CB2D516777532005D5CF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		A04CB2DD16777532005D5CF0 /* AeroGear-StoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AeroGear-StoreTests-Info.plist"; sourceTree = "<group>"; };
 		A04CB2DF16777532005D5CF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A04CB2E216777532005D5CF0 /* AeroGear_StoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AeroGear_StoreTests.m; sourceTree = "<group>"; };
 		A04CB2F016777A5C005D5CF0 /* AGIncrementalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIncrementalStore.h; sourceTree = "<group>"; };
 		A04CB2F116777A5C005D5CF0 /* AGIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGIncrementalStore.m; sourceTree = "<group>"; };
 		A04CB2F916777C0B005D5CF0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -82,8 +80,6 @@
 		A04CB30016777CCB005D5CF0 /* AeroGearStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AeroGearStore.h; sourceTree = "<group>"; };
 		A04CB30516779292005D5CF0 /* AGIncrementalStoreHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGIncrementalStoreHttpClient.h; sourceTree = "<group>"; };
 		A04CB30616779292005D5CF0 /* AGIncrementalStoreHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGIncrementalStoreHttpClient.m; sourceTree = "<group>"; };
-		A04CB30B16779C4D005D5CF0 /* AGTestStoreAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTestStoreAdapter.h; sourceTree = "<group>"; };
-		A04CB30C16779C4D005D5CF0 /* AGTestStoreAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTestStoreAdapter.m; sourceTree = "<group>"; };
 		A04CB30F16779D67005D5CF0 /* AGCustomStoreAdapterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCustomStoreAdapterTests.m; sourceTree = "<group>"; };
 		A085F076167F099900601C6C /* AGAuthConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAuthConfig.h; sourceTree = "<group>"; };
 		A085F077167F099900601C6C /* AGAuthConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAuthConfiguration.h; sourceTree = "<group>"; };
@@ -171,10 +167,11 @@
 				A04CB30516779292005D5CF0 /* AGIncrementalStoreHttpClient.h */,
 				A04CB30616779292005D5CF0 /* AGIncrementalStoreHttpClient.m */,
 				A04CB30016777CCB005D5CF0 /* AeroGearStore.h */,
-				A025D6CD167F27AF0064800F /* AGCoreDataPlugin.h */,
-				A025D6CE167F27AF0064800F /* AGCoreDataPlugin.m */,
 				A036A385168F56BB00236AD3 /* AGCoreDataHelper.h */,
 				A036A386168F56BC00236AD3 /* AGCoreDataHelper.m */,
+				A036A3C316943A9700236AD3 /* AGCoreDataConfig.h */,
+				A036A3C516943ABF00236AD3 /* AGCoreDataConfiguration.h */,
+				A036A3C616943ABF00236AD3 /* AGCoreDataConfiguration.m */,
 			);
 			path = "AeroGear-Store";
 			sourceTree = "<group>";
@@ -191,9 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				A04CB2DC16777532005D5CF0 /* Supporting Files */,
-				A04CB2E216777532005D5CF0 /* AeroGear_StoreTests.m */,
-				A04CB30B16779C4D005D5CF0 /* AGTestStoreAdapter.h */,
-				A04CB30C16779C4D005D5CF0 /* AGTestStoreAdapter.m */,
 				A04CB30F16779D67005D5CF0 /* AGCustomStoreAdapterTests.m */,
 				A036A389168F5FDC00236AD3 /* TestModel.xcdatamodeld */,
 				A036A39C1690989600236AD3 /* Tag.h */,
@@ -360,8 +354,8 @@
 				A085F07F167F099900601C6C /* AGAuthConfiguration.m in Sources */,
 				A085F080167F099900601C6C /* AGAuthenticator.m in Sources */,
 				A085F081167F099900601C6C /* AGRestAuthentication.m in Sources */,
-				A025D6CF167F27AF0064800F /* AGCoreDataPlugin.m in Sources */,
 				A036A387168F56BC00236AD3 /* AGCoreDataHelper.m in Sources */,
+				A036A3C716943ABF00236AD3 /* AGCoreDataConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,8 +363,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A04CB2E316777532005D5CF0 /* AeroGear_StoreTests.m in Sources */,
-				A04CB30D16779C4D005D5CF0 /* AGTestStoreAdapter.m in Sources */,
 				A04CB31016779D67005D5CF0 /* AGCustomStoreAdapterTests.m in Sources */,
 				A036A38B168F5FDC00236AD3 /* TestModel.xcdatamodeld in Sources */,
 				A036A39E1690989600236AD3 /* Tag.m in Sources */,

@@ -1,7 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source.
  * Copyright 2012 Red Hat, Inc., and individual contributors
- * as indicated by the @author tags.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +15,16 @@
  * limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
-#import "AGIncrementalStore.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/NSManagedObjectModel.h>
 
-@interface AGTestStoreAdapter : AGIncrementalStore<AGIncrementalStoreAdapter>
+#import "AGAuthenticationModule.h"
+
+@protocol AGCoreDataConfig <NSObject>
+
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (strong, nonatomic) NSURL *baseURL;
+@property (strong, nonatomic) id<AGAuthenticationModule> authMod;
+
 
 @end

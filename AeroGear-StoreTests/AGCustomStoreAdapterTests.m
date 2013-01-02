@@ -47,7 +47,7 @@
     [super tearDown];
 }
 
--(void) testAuthMod {
+-(void) test_FetchWithAuthMod {
     // create an authenticator object
     AGAuthenticator* authenticator = [AGAuthenticator authenticator];
     
@@ -65,7 +65,11 @@
         NSManagedObjectModel* managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:url];
         
         
-        AGCoreDataHelper *helper = [[AGCoreDataHelper alloc] initWithModel:managedObjectModel baseURL:baseURL authMod:myMod];
+        AGCoreDataHelper *helper = [[AGCoreDataHelper alloc] initWithConfig:^(id<AGCoreDataConfig> config) {
+            [config setManagedObjectModel:managedObjectModel];
+            [config setBaseURL:baseURL];
+            [config setAuthMod:myMod];
+        }];
         
         NSManagedObjectContext *context = helper.managedObjectContext;
         
@@ -75,25 +79,64 @@
                                                   inManagedObjectContext:context];
         [fetchRequest setEntity:entity];
         NSError *error = nil;
-        NSLog(@"AAA");
-        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+
+        [[NSNotificationCenter defaultCenter] addObserverForName:@"AFIncrementalStoreContextDidFetchRemoteValues" object:context queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+            NSDictionary *userInfo = [note userInfo];
+            NSArray *fetchedObjects = [userInfo objectForKey:@"AFIncrementalStoreFetchedObjectsKey"];
+            
+            NSLog(@"JO..... %d", fetchedObjects.count);
+
+
+            _finishedFlag = YES;
+            
+        }];
         
-        NSLog(@"error: %@", error);
+        [context executeFetchRequest:fetchRequest error:&error];
+    } failure:^(NSError *error) {
+        //
+    }];
+    
+    // keep the run loop going
+    while(!_finishedFlag) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
+    
+}
+-(void) testSaveWithAuthMod {
+    // create an authenticator object
+    AGAuthenticator* authenticator = [AGAuthenticator authenticator];
+    
+    // add a new auth module and the required 'base url':
+    NSURL* baseURL = [NSURL URLWithString:@"https://todoauth-aerogear.rhcloud.com/todo-server/"];
+    id<AGAuthenticationModule> myMod = [authenticator auth:^(id<AGAuthConfig> config) {
+        [config name:@"authMod"];
+        [config baseURL:baseURL];
+    }];
+    
+    
+    [myMod login:@"john" password:@"123" success:^(id object) {
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        NSURL *url = [bundle URLForResource:@"TestModel" withExtension:@"momd"];
+        NSManagedObjectModel* managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:url];
         
-        NSLog(@"BBB -> %@", fetchedObjects);
-//
-        for (Tag *tag in fetchedObjects) {
-            NSLog(@"\t\t%@ ", tag.title);
-        }
+        
+        AGCoreDataHelper *helper = [[AGCoreDataHelper alloc] initWithConfig:^(id<AGCoreDataConfig> config) {
+            [config setManagedObjectModel:managedObjectModel];
+            [config setBaseURL:baseURL];
+            [config setAuthMod:myMod];
+        }];
+        
+        NSManagedObjectContext *context = helper.managedObjectContext;
         
         Tag *tag = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:context];
-        tag.title = @"TASK";
+        tag.title = @"Unit Test Tag";
         tag.style =@"tag-133-191-79";
 
         // Save everything
-        NSError *error2 = nil;
-        if ([context save:&error2]) {
+        NSError *error = nil;
+        if ([context save:&error]) {
             NSLog(@"The save was successful!");
+            _finishedFlag =YES;
         } else {
             NSLog(@"The save wasn't successful: %@", [error userInfo]);
         }
@@ -108,10 +151,8 @@
     while(!_finishedFlag) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
-
+    
 }
-
-
 
 //-(void) testModelExtension {
 //    [AGTestStoreAdapter extension];

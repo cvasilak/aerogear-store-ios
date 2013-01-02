@@ -1,7 +1,6 @@
 /*
  * JBoss, Home of Professional Open Source.
  * Copyright 2012 Red Hat, Inc., and individual contributors
- * as indicated by the @author tags.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,19 +15,12 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
+#import "AGCoreDataConfiguration.h"
 
-#import "AGIncrementalStore.h"
-#import <CoreData/CoreData.h>
+@implementation AGCoreDataConfiguration
 
-@interface AGCoreDataPlugin : AGIncrementalStore<AGIncrementalStoreAdapter>
-
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-//factory
-+ (AGCoreDataPlugin *)sharedClient:(id<AGAuthenticationModule>) authenticationModule model:(NSString *) model baseURL:(NSURL *) baseURL;
-
-+ (AGCoreDataPlugin *)sharedClient;
-
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize baseURL = _baseURL;
+@synthesize authMod = _authMod;
 
 @end
