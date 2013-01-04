@@ -39,8 +39,7 @@
 - (id <AFIncrementalStoreHTTPClient>)HTTPClient {
     
     // THIS needs to be initialized ...............
-    // return [AGIncrementalStoreHttpClient clientFor:[self baseURL] authModule:[self authModule]];
-    return [AGIncrementalStoreHttpClient clientFor:__baseURL authModule:__authMod];
+    return [AGIncrementalStoreHttpClient clientFor:__baseURL authModule:__authMod mapper:__mapper];
 }
 
 #pragma mark - AGIncrementalStoreAdapter
@@ -62,6 +61,10 @@
 }
 
 // mega hack:
+NSDictionary *__mapper;
++(void) setEntityMapper:(NSDictionary *) mapper {
+    __mapper = mapper;
+}
 NSURL *__baseURL;
 +(void) setBaseURL:(NSURL *) baseURL {
     __baseURL = baseURL;

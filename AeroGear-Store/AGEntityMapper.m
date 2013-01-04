@@ -16,29 +16,24 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "AFIncrementalStore.h"
+#import "AGEntityMapper.h"
 
-#import "AGAuthenticationModule.h"
+@implementation AGEntityMapper
 
-@protocol AGIncrementalStoreAdapter <NSObject>
+@synthesize name = _name;
+@synthesize mapper = _mapper;
 
--(NSURL *) baseURL;
--(id<AGAuthenticationModule>) authModule;
-+(NSString *) modelName;
-+(NSString *) extension;
-@end
+//-(id)init {
+//    // throw NSException that this is not the designated initializer..
+//}
 
-
-@interface AGIncrementalStore : AFIncrementalStore<AGIncrementalStoreAdapter>
-
-+(void) setBaseURL:(NSURL *) baseURL;
-+(void) setAuthModule:(id<AGAuthenticationModule>) authMod;
-+(void) setModel:(NSManagedObjectModel *)managedObjectModel;
-+(void) setEntityMapper:(NSDictionary *) mapper;
-//+(NSString *) modelName;
-
+-(id)initWithName:(NSString *)name mapper:(NSDictionary *)mapper {
+    self = [super init];
+    if (self) {
+        _name = name;
+        _mapper = mapper;
+    }
+    return self;
+}
 
 @end
-
-

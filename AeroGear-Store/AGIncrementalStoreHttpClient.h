@@ -24,8 +24,7 @@
 
 @interface AGIncrementalStoreHttpClient : AFRESTClient <AFIncrementalStoreHTTPClient>
 
-//+ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL;
-+ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL authModule:(id<AGAuthenticationModule>) authModule;
++ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL authModule:(id<AGAuthenticationModule>) authModule mapper:(NSDictionary *) mapper;
 
 
 @end

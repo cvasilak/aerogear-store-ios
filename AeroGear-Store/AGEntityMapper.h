@@ -17,28 +17,13 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "AFIncrementalStore.h"
 
-#import "AGAuthenticationModule.h"
+@interface AGEntityMapper : NSObject
 
-@protocol AGIncrementalStoreAdapter <NSObject>
-
--(NSURL *) baseURL;
--(id<AGAuthenticationModule>) authModule;
-+(NSString *) modelName;
-+(NSString *) extension;
-@end
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSDictionary *mapper;
 
 
-@interface AGIncrementalStore : AFIncrementalStore<AGIncrementalStoreAdapter>
-
-+(void) setBaseURL:(NSURL *) baseURL;
-+(void) setAuthModule:(id<AGAuthenticationModule>) authMod;
-+(void) setModel:(NSManagedObjectModel *)managedObjectModel;
-+(void) setEntityMapper:(NSDictionary *) mapper;
-//+(NSString *) modelName;
-
+-(id) initWithName:(NSString *) name mapper:(NSDictionary *) mapper;
 
 @end
-
-

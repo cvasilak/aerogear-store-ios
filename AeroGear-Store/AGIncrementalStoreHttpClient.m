@@ -21,20 +21,22 @@
 #import "AGAuthenticationModuleAdapter.h"
 
 @implementation AGIncrementalStoreHttpClient {
-     id<AGAuthenticationModuleAdapter> _authModule;
+    id<AGAuthenticationModuleAdapter> _authModule;
+    NSDictionary *_mapperInformation;
 }
 
-+ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL  authModule:(id<AGAuthenticationModule>) authModule{
-    return [[self alloc] initWithBaseURL:baseURL authModule:authModule];
++ (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL  authModule:(id<AGAuthenticationModule>) authModule mapper:(NSDictionary *) mapper{
+    return [[self alloc] initWithBaseURL:baseURL authModule:authModule mapper:mapper];
 }
 
-- (id)initWithBaseURL:(NSURL *)url authModule:(id<AGAuthenticationModule>) authModule {
+- (id)initWithBaseURL:(NSURL *)url authModule:(id<AGAuthenticationModule>) authModule mapper:(NSDictionary *) mapper{
     self = [super initWithBaseURL:url];
     if (!self) {
         return nil;
     }
     
     _authModule = (id<AGAuthenticationModuleAdapter>) authModule;
+    _mapperInformation = mapper;
 
     [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     
@@ -70,6 +72,76 @@
     if ([_authModule isAuthenticated]) {
         [self setDefaultHeader:@"Auth-Token" value:[_authModule authToken]];
     }
+}
+
+
+//GET
+- (NSDictionary *)attributesForRepresentation:(NSDictionary *)representation
+                                     ofEntity:(NSEntityDescription *)entity
+                                 fromResponse:(NSHTTPURLResponse *)response
+{
+    // matching properties+values:
+    NSMutableDictionary *mutablePropertyValues = [[super attributesForRepresentation:representation ofEntity:entity fromResponse:response] mutableCopy];
+
+    // does the given entity have a registered mapping ?
+    if ([_mapperInformation objectForKey:entity.name]) {
+        NSDictionary *mappingPerEntity = [_mapperInformation objectForKey:entity.name];
+        
+        // get all the properties for the managed object:
+        NSMutableSet *propertyKeys = [NSMutableSet set];
+        for (NSPropertyDescription *property in entity) {
+            [propertyKeys addObject:property.name];
+        }
+
+        // apply the mapping from JSON rep. to Managed object:
+        for (NSString *propertyKey in propertyKeys) {
+            NSString *externalKeyPath = mappingPerEntity[propertyKey] ?: propertyKey;
+		    id value = [representation valueForKeyPath:externalKeyPath];
+		    if (value == nil) continue;
+            [mutablePropertyValues setObject:value forKey:propertyKey];
+        }
+    }
+    return mutablePropertyValues;
+}
+
+
+// POST, PUT...
+- (NSDictionary *)representationOfAttributes:(NSDictionary *)attributes
+                             ofManagedObject:(NSManagedObject *)managedObject {
+    
+    // get the given managed bean as key/valye store (dictionary)
+    NSDictionary *managedObjectRepresentation =  [[super representationOfAttributes:attributes ofManagedObject:managedObject] mutableCopy];
+    
+    // dictionary with key/value pairs, to be sent to the server
+    NSMutableDictionary *externalRepresentation = [NSMutableDictionary dictionaryWithCapacity:managedObjectRepresentation.count];
+    // does the given entity have a registered mapping ?
+    if ([_mapperInformation objectForKey:managedObject.entity.name]) {
+        NSDictionary *mappingPerEntity = [_mapperInformation objectForKey:managedObject.entity.name];
+        
+        // iterate over the key/value pairs of the MO, to fill the externalRepresentation with life...
+        [managedObjectRepresentation enumerateKeysAndObjectsUsingBlock:^(NSString *propertyKey, id value, BOOL *stop) {
+            NSString *externalKeyPath = mappingPerEntity[propertyKey] ?: propertyKey;
+            NSArray *keyPathComponents = [externalKeyPath componentsSeparatedByString:@"."];
+            
+            if (![value isEqual:NSNull.null]) {
+                // Set up intermediate key paths if the value we'd be setting isn't
+                // nil.
+                id obj = externalRepresentation;
+                for (NSString *component in keyPathComponents) {
+                    if ([obj valueForKey:component] == nil) {
+                        // Insert an empty mutable dictionary at this spot so that we
+                        // can set the whole key path afterward.
+                        [obj setValue:[NSMutableDictionary dictionary] forKey:component];
+                    }
+                    
+                    obj = [obj valueForKey:component];
+                }
+            }
+            
+            [externalRepresentation setValue:value forKeyPath:externalKeyPath];
+        }];
+    }
+    return externalRepresentation;
 }
 
 @end

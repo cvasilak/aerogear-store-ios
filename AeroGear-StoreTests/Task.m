@@ -1,17 +1,17 @@
 //
-//  Tag.m
+//  Task.m
 //  AeroGear-Store
 //
 //  Created by Matthias Wessendorf on 1/4/13.
 //  Copyright (c) 2013 Matthias Wessendorf. All rights reserved.
 //
 
-#import "Tag.h"
+#import "Task.h"
 
 
-@implementation Tag
+@implementation Task
 
-@dynamic style;
 @dynamic title;
+@dynamic desc;
 
 @end

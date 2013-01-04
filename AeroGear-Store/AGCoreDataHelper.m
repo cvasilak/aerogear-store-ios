@@ -59,6 +59,7 @@
         [AGIncrementalStore setModel:_managedObjectModel];
         [AGIncrementalStore setBaseURL:_baseURL];
         [AGIncrementalStore setAuthModule:_authMod];
+        [AGIncrementalStore setEntityMapper:coreDataConfig.entityMapperInformation];
     }
     return self;
 }

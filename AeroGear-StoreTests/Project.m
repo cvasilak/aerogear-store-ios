@@ -1,17 +1,16 @@
 //
-//  Tag.m
+//  Project.m
 //  AeroGear-Store
 //
 //  Created by Matthias Wessendorf on 1/4/13.
 //  Copyright (c) 2013 Matthias Wessendorf. All rights reserved.
 //
 
-#import "Tag.h"
+#import "Project.h"
 
 
-@implementation Tag
+@implementation Project
 
-@dynamic style;
 @dynamic title;
 
 @end

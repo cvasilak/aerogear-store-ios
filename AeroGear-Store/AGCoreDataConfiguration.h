@@ -20,4 +20,6 @@
 
 @interface AGCoreDataConfiguration : NSObject<AGCoreDataConfig>
 
+@property (readonly, strong, nonatomic) NSMutableDictionary *entityMapperInformation;
+
 @end

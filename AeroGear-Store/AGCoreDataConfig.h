@@ -19,6 +19,7 @@
 #import <CoreData/NSManagedObjectModel.h>
 
 #import "AGAuthenticationModule.h"
+#import "AGEntityMapper.h"
 
 @protocol AGCoreDataConfig <NSObject>
 
@@ -26,5 +27,6 @@
 @property (strong, nonatomic) NSURL *baseURL;
 @property (strong, nonatomic) id<AGAuthenticationModule> authMod;
 
+-(void)applyEntityMappers:(AGEntityMapper *)firstObject, ... NS_REQUIRES_NIL_TERMINATION;
 
 @end

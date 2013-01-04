@@ -1,5 +1,5 @@
 //
-//  Tag.h
+//  Task.h
 //  AeroGear-Store
 //
 //  Created by Matthias Wessendorf on 1/4/13.
@@ -10,9 +10,9 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Tag : NSManagedObject
+@interface Task : NSManagedObject
 
-@property (nonatomic, retain) NSString * style;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * desc;
 
 @end

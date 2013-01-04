@@ -23,4 +23,32 @@
 @synthesize baseURL = _baseURL;
 @synthesize authMod = _authMod;
 
+@synthesize entityMapperInformation = _entityMapperInformation;
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _entityMapperInformation = [NSMutableDictionary dictionary];
+    }
+    return self;
+}
+
+-(void)applyEntityMappers:(AGEntityMapper *)firstObject, ... {
+    va_list args;
+    
+    if (firstObject) {
+        // add the first obj/info:
+        [_entityMapperInformation setValue:firstObject.mapper forKey:firstObject.name];
+        
+        // loop over the rest of the objects:
+        va_start(args, firstObject);
+        AGEntityMapper *eachObject = nil;
+        while ((eachObject = va_arg(args,AGEntityMapper*))) {
+            // add the mapper, for each entity class:
+            [_entityMapperInformation setValue:eachObject.mapper forKey:eachObject.name];
+        }
+        va_end(args);
+    }
+}
+
 @end
