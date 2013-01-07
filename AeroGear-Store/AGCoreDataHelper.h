@@ -22,10 +22,25 @@
 #import "AGAuthenticationModule.h"
 #import "AGCoreDataConfig.h"
 
+/**
+ * Helper class to setup the CoreData stack. Pass in a AGCoreDataConfig object and receive the
+ * NSManagedObjectContext, that's all you need to access a remote endpoint, using the CoreData API.
+ */
 @interface AGCoreDataHelper : NSObject
 
+/**
+ * Returns configured 'NSManagedObjectContext', pointing to the given remote endpoint.
+ */
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+/**
+ * An initializer method to instantiate the AGCoreDataHelper.
+ *
+ * @param config A block object which passes in an implementation of the AGCoreDataConfig protocol.
+ * The object is used to configure the CoreData stack of the AGCoreDataHelper object.
+ *
+ * @return AGCoreDataHelper with a configured CoreData stack.
+ */
 -(id) initWithConfig:(void (^)(id<AGCoreDataConfig> config)) config;
 
 @end

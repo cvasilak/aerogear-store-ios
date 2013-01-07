@@ -22,9 +22,12 @@
 
 #import "AGAuthenticationModule.h"
 
+/**
+ * Internal class - extends the AFRESTClient (from AFIncrementalStore), to provide details like the
+ * the EntityMapper or the AGAuthenticationModule.
+ */
 @interface AGIncrementalStoreHttpClient : AFRESTClient <AFIncrementalStoreHTTPClient>
 
 + (AGIncrementalStoreHttpClient *)clientFor:(NSURL *)baseURL authModule:(id<AGAuthenticationModule>) authModule mapper:(NSDictionary *) mapper;
-
 
 @end

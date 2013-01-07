@@ -74,8 +74,9 @@
     }
 }
 
+#pragma mark - AFIncrementalStoreHTTPClient
 
-//GET
+#pragma mark Read Methods (GET)
 - (NSDictionary *)attributesForRepresentation:(NSDictionary *)representation
                                      ofEntity:(NSEntityDescription *)entity
                                  fromResponse:(NSHTTPURLResponse *)response
@@ -105,7 +106,7 @@
 }
 
 
-// POST, PUT...
+#pragma mark Write Methods (POST, PUT)
 - (NSDictionary *)representationOfAttributes:(NSDictionary *)attributes
                              ofManagedObject:(NSManagedObject *)managedObject {
     

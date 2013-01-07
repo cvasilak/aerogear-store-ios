@@ -21,12 +21,29 @@
 #import "AGAuthenticationModule.h"
 #import "AGEntityMapper.h"
 
+/**
+ * Represents the public API to configure the AGCoreDataHelper.
+ */
 @protocol AGCoreDataConfig <NSObject>
 
+/**
+ * Applies a CoreData model object to the configuration.
+ */
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+
+/**
+ * Applies the baseURL to the configuration.
+ */
 @property (strong, nonatomic) NSURL *baseURL;
+
+/**
+ * Applies the AGAuthenticationModule object to the configuration.
+ */
 @property (strong, nonatomic) id<AGAuthenticationModule> authMod;
 
+/**
+ * Applies the the specified set of AGEntityMapper objects to the configuration.
+ */
 -(void)applyEntityMappers:(AGEntityMapper *)firstObject, ... NS_REQUIRES_NIL_TERMINATION;
 
 @end

@@ -19,10 +19,14 @@
 #ifndef _AEROGEAR-STORE_
 #define _AEROGEAR-STORE_
 
-//#import "AGIncrementalStore.h"
-//#import "AGIncrementalStoreHttpClient.h"
-
+// CoreData hooks
+#import "AGCoreDataConfig.h"
 #import "AGCoreDataHelper.h"
+#import "AGEntityMapper.h"
 
+// Security
+#import "AGAuthenticationModule.h"
+#import "AGAuthenticator.h"
+#import "AGAuthConfig.h"
 
 #endif /* _AEROGEAR-STORE */

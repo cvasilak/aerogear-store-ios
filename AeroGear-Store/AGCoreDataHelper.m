@@ -20,13 +20,11 @@
 #import "AGIncrementalStore.h"
 #import "AGCoreDataConfiguration.h"
 
+// private category for the CoreData hooks
 @interface AGCoreDataHelper ()
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSURL *baseURL;
-@property (readonly, strong, nonatomic) id<AGAuthenticationModule> authMod;
 
 @end
 
@@ -35,13 +33,6 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize baseURL = _baseURL;
-@synthesize authMod = _authMod;
-
-
-//-(id)init {
-//    // throw NSException that this is not the designated initializer..
-//}
 
 -(id) initWithConfig:(void (^)(id<AGCoreDataConfig> config)) config {
     self = [super init];
@@ -52,22 +43,17 @@
             config(coreDataConfig);
         }
         _managedObjectModel = coreDataConfig.managedObjectModel;
-        _baseURL = coreDataConfig.baseURL;
-        _authMod = coreDataConfig.authMod;
         
-        // awful setters:
+        // Global setters on the (per app) IncrementalStore
         [AGIncrementalStore setModel:_managedObjectModel];
-        [AGIncrementalStore setBaseURL:_baseURL];
-        [AGIncrementalStore setAuthModule:_authMod];
+        [AGIncrementalStore setBaseURL:coreDataConfig.baseURL];
+        [AGIncrementalStore setAuthModule:coreDataConfig.authMod];
         [AGIncrementalStore setEntityMapper:coreDataConfig.entityMapperInformation];
     }
     return self;
 }
 
-
-
-
-/// CoreData hocks... like in App Delegate..
+#pragma mark CoreData hooks 
 - (NSManagedObjectContext *)managedObjectContext {
     // A
     if (_managedObjectContext != nil) {
@@ -94,7 +80,6 @@
     
     AGIncrementalStore *incrementalStore = (AGIncrementalStore *)[_persistentStoreCoordinator addPersistentStoreWithType:
                                                                   [AGIncrementalStore type] configuration:nil URL:nil options:nil error:nil];
-    
     
     NSError *error = nil;
     if (![incrementalStore.backingPersistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:&error]) {

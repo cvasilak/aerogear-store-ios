@@ -38,7 +38,7 @@
 - (void)setUp
 {
     [super setUp];
-    
+
     // Set-up code here.
 }
 
@@ -68,7 +68,7 @@
         
         
         AGEntityMapper *taskMapper =
-        [[AGEntityMapper alloc] initWithName:@"Task"
+        [[AGEntityMapper alloc] initForEntity:@"Task"
          // mapping the properties on the "entity" (NSManagedObject)
          // to the external representation (e.g. JSON)
                                       mapper:@{ @"desc": @"description"}];
@@ -132,7 +132,7 @@
         NSManagedObjectModel* managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:url];
         
         AGEntityMapper *taskMapper =
-        [[AGEntityMapper alloc] initWithName:@"Task"
+        [[AGEntityMapper alloc] initForEntity:@"Task"
          // mapping the properties on the "entity" (NSManagedObject)
          // to the external representation (e.g. JSON)
                                       mapper:@{ @"desc": @"description", @"myId": @"id"}];
@@ -190,7 +190,7 @@
         
         
         AGEntityMapper *taskMapper =
-        [[AGEntityMapper alloc] initWithName:@"Tag"
+        [[AGEntityMapper alloc] initForEntity:@"Tag"
          // mapping the properties on the "entity" (NSManagedObject)
          // to the external representation (e.g. JSON)
                                       mapper:@{ @"desc": @"description", @"myId": @"id"}];
@@ -254,7 +254,7 @@
         NSManagedObjectModel* managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:url];
         
         AGEntityMapper *taskMapper =
-        [[AGEntityMapper alloc] initWithName:@"Tag"
+        [[AGEntityMapper alloc] initForEntity:@"Tag"
          // mapping the properties on the "entity" (NSManagedObject)
          // to the external representation (e.g. JSON)
                                       mapper:@{ @"desc": @"description", @"myId": @"id"}];
@@ -313,7 +313,7 @@
         
         
         AGEntityMapper *projectMapper =
-        [[AGEntityMapper alloc] initWithName:@"Project"
+        [[AGEntityMapper alloc] initForEntity:@"Project"
          // mapping the properties on the "entity" (NSManagedObject)
          // to the external representation (e.g. JSON)
                                       mapper:@{ @"myId": @"id"}];
@@ -377,7 +377,7 @@
         NSManagedObjectModel* managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:url];
         
         AGEntityMapper *projectMapper =
-        [[AGEntityMapper alloc] initWithName:@"Project"
+        [[AGEntityMapper alloc] initForEntity:@"Project"
          // mapping the properties on the "entity" (NSManagedObject)
          // to the external representation (e.g. JSON)
                                       mapper:@{ @"myId": @"id"}];

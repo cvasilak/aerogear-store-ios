@@ -31,40 +31,18 @@
     return NSStringFromClass(self);
 }
 
-//+ (NSManagedObjectModel *)model {
-//    return [[NSManagedObjectModel alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:[self modelName] withExtension:[self extension]]];
-//}
-
-// it's a getter of AFIncStore...
+#pragma mark AFIncrementalStore
 - (id <AFIncrementalStoreHTTPClient>)HTTPClient {
     
-    // THIS needs to be initialized ...............
     return [AGIncrementalStoreHttpClient clientFor:__baseURL authModule:__authMod mapper:__mapper];
 }
 
-#pragma mark - AGIncrementalStoreAdapter
-
-//-(id<AGAuthenticationModule>) authModule {
-//    return nil;
-//}
-//
-//-(NSURL *) baseURL {
-//    @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: -baseURL. Must be overridden in a subclass", nil) userInfo:nil]);
-//}
-
-+(NSString *) modelName {
-    @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: +modelName. Must be overridden in a subclass", nil) userInfo:nil]);
-}
-
-+(NSString *) extension {
-    @throw([NSException exceptionWithName:AFIncrementalStoreUnimplementedMethodException reason:NSLocalizedString(@"Unimplemented method: +extension. Must be overridden in a subclass", nil) userInfo:nil]);
-}
-
-// mega hack:
+#pragma mark Global Setters
 NSDictionary *__mapper;
 +(void) setEntityMapper:(NSDictionary *) mapper {
     __mapper = mapper;
 }
+
 NSURL *__baseURL;
 +(void) setBaseURL:(NSURL *) baseURL {
     __baseURL = baseURL;
@@ -79,14 +57,12 @@ id<AGAuthenticationModule> __authMod;
     return __authMod;
 }
 
--(NSURL *) baseURL {
-    return __baseURL;
-}
-
 NSManagedObjectModel *__managedObjectModel;
 +(void)setModel:(NSManagedObjectModel *)managedObjectModel {
     __managedObjectModel = managedObjectModel;
 }
+
+// according to the AFIncStore, this is required, but the function is never invoked.....
 + (NSManagedObjectModel *)model {
     return __managedObjectModel;
 }

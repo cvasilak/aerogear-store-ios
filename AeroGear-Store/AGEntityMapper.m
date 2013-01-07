@@ -23,14 +23,10 @@
 @synthesize name = _name;
 @synthesize mapper = _mapper;
 
-//-(id)init {
-//    // throw NSException that this is not the designated initializer..
-//}
-
--(id)initWithName:(NSString *)name mapper:(NSDictionary *)mapper {
+-(id) initForEntity:(NSString *) entityName mapper:(NSDictionary *) mapper {
     self = [super init];
     if (self) {
-        _name = name;
+        _name = entityName;
         _mapper = mapper;
     }
     return self;

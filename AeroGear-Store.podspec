@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/aerogear/aerogear-store-ios.git', :tag => '1.0.0.Alpha1' }
   s.platform     = :ios, '5.0'
   s.source_files = 'AeroGear-Store/**/*.{h,m}'
-  s.public_header_files = 'AeroGear-Store/AeroGearStore.h','AeroGear-Store/AGIncrementalStore.h','AeroGear-Store/AGIncrementalStoreHttpClient.h', 'AeroGear-Store/AGAuthenticationModule.h', 'AeroGear-Store/AGAuthenticator.h', 'AeroGear-Store/AGAuthConfig.h', 'AeroGear-Store/AGCoreDataPlugin.h'
+  s.public_header_files = 'AeroGear-Store/AeroGearStore.h', 'AeroGear-Store/AGCoreDataConfig.h', 'AeroGear-Store/AGCoreDataHelper.h', ,'AeroGear-Store/AGEntityMapper.h', 'AeroGear-Store/AGAuthenticationModule.h', 'AeroGear-Store/AGAuthenticator.h', 'AeroGear-Store/AGAuthConfig.h'
   s.requires_arc = true
   s.dependency 'AeroGear', '1.0.0.M1.20121115'
   s.dependency 'AFIncrementalStore'

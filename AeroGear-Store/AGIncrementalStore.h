@@ -21,23 +21,17 @@
 
 #import "AGAuthenticationModule.h"
 
-@protocol AGIncrementalStoreAdapter <NSObject>
-
--(NSURL *) baseURL;
--(id<AGAuthenticationModule>) authModule;
-+(NSString *) modelName;
-+(NSString *) extension;
-@end
-
-
-@interface AGIncrementalStore : AFIncrementalStore<AGIncrementalStoreAdapter>
+/**
+ * Internal class - Global Incremental Store, that extends the AFIncrementalStore,
+ * to provide details like the underlying NSManagedObjectModel,
+ * or the EntityMapper infos.
+ */
+@interface AGIncrementalStore : AFIncrementalStore
 
 +(void) setBaseURL:(NSURL *) baseURL;
 +(void) setAuthModule:(id<AGAuthenticationModule>) authMod;
 +(void) setModel:(NSManagedObjectModel *)managedObjectModel;
 +(void) setEntityMapper:(NSDictionary *) mapper;
-//+(NSString *) modelName;
-
 
 @end
 
