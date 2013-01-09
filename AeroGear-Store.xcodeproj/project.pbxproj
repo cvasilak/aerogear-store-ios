@@ -12,9 +12,9 @@
 		A036A38B168F5FDC00236AD3 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A036A389168F5FDC00236AD3 /* TestModel.xcdatamodeld */; };
 		A036A3C716943ABF00236AD3 /* AGCoreDataConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A036A3C616943ABF00236AD3 /* AGCoreDataConfiguration.m */; };
 		A036A4391696FEE900236AD3 /* AGEntityMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A036A4381696FEE900236AD3 /* AGEntityMapper.m */; };
-		A036A43F169749A500236AD3 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = A036A43E169749A500236AD3 /* Project.m */; };
-		A036A442169749A500236AD3 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = A036A441169749A500236AD3 /* Tag.m */; };
-		A036A44B169750C100236AD3 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = A036A44A169750C100236AD3 /* Task.m */; };
+		A04A92D9169D64EE00D234B6 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = A04A92D8169D64EE00D234B6 /* Tag.m */; };
+		A04A92DC169D64EE00D234B6 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = A04A92DB169D64EE00D234B6 /* Task.m */; };
+		A04A92DF169D64EE00D234B6 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = A04A92DE169D64EE00D234B6 /* Project.m */; };
 		A04CB2C516777532005D5CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2C416777532005D5CF0 /* Foundation.framework */; };
 		A04CB2D416777532005D5CF0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2D316777532005D5CF0 /* SenTestingKit.framework */; };
 		A04CB2D616777532005D5CF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A04CB2D516777532005D5CF0 /* UIKit.framework */; };
@@ -67,12 +67,12 @@
 		A036A3C616943ABF00236AD3 /* AGCoreDataConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGCoreDataConfiguration.m; sourceTree = "<group>"; };
 		A036A4371696FEE700236AD3 /* AGEntityMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGEntityMapper.h; sourceTree = "<group>"; };
 		A036A4381696FEE900236AD3 /* AGEntityMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGEntityMapper.m; sourceTree = "<group>"; };
-		A036A43D169749A500236AD3 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
-		A036A43E169749A500236AD3 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
-		A036A440169749A500236AD3 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
-		A036A441169749A500236AD3 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
-		A036A449169750C100236AD3 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		A036A44A169750C100236AD3 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		A04A92D7169D64EE00D234B6 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		A04A92D8169D64EE00D234B6 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		A04A92DA169D64EE00D234B6 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		A04A92DB169D64EE00D234B6 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		A04A92DD169D64EE00D234B6 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		A04A92DE169D64EE00D234B6 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		A04CB2C116777532005D5CF0 /* libAeroGear-Store.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libAeroGear-Store.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04CB2C416777532005D5CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A04CB2C816777532005D5CF0 /* AeroGear-Store-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AeroGear-Store-Prefix.pch"; sourceTree = "<group>"; };
@@ -200,13 +200,13 @@
 			children = (
 				A04CB2DC16777532005D5CF0 /* Supporting Files */,
 				A04CB30F16779D67005D5CF0 /* AGCustomStoreAdapterTests.m */,
-				A036A449169750C100236AD3 /* Task.h */,
-				A036A44A169750C100236AD3 /* Task.m */,
 				A036A389168F5FDC00236AD3 /* TestModel.xcdatamodeld */,
-				A036A43D169749A500236AD3 /* Project.h */,
-				A036A43E169749A500236AD3 /* Project.m */,
-				A036A440169749A500236AD3 /* Tag.h */,
-				A036A441169749A500236AD3 /* Tag.m */,
+				A04A92D7169D64EE00D234B6 /* Tag.h */,
+				A04A92DA169D64EE00D234B6 /* Task.h */,
+				A04A92DD169D64EE00D234B6 /* Project.h */,
+				A04A92DE169D64EE00D234B6 /* Project.m */,
+				A04A92DB169D64EE00D234B6 /* Task.m */,
+				A04A92D8169D64EE00D234B6 /* Tag.m */,
 			);
 			path = "AeroGear-StoreTests";
 			sourceTree = "<group>";
@@ -381,9 +381,9 @@
 			files = (
 				A04CB31016779D67005D5CF0 /* AGCustomStoreAdapterTests.m in Sources */,
 				A036A38B168F5FDC00236AD3 /* TestModel.xcdatamodeld in Sources */,
-				A036A43F169749A500236AD3 /* Project.m in Sources */,
-				A036A442169749A500236AD3 /* Tag.m in Sources */,
-				A036A44B169750C100236AD3 /* Task.m in Sources */,
+				A04A92D9169D64EE00D234B6 /* Tag.m in Sources */,
+				A04A92DC169D64EE00D234B6 /* Task.m in Sources */,
+				A04A92DF169D64EE00D234B6 /* Project.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

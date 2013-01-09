@@ -2,7 +2,7 @@
 //  Tag.h
 //  AeroGear-Store
 //
-//  Created by Matthias Wessendorf on 1/4/13.
+//  Created by Matthias Wessendorf on 1/9/13.
 //  Copyright (c) 2013 Matthias Wessendorf. All rights reserved.
 //
 

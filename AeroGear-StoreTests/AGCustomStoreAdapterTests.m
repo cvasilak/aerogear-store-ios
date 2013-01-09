@@ -54,7 +54,7 @@
     AGAuthenticator* authenticator = [AGAuthenticator authenticator];
     
     // add a new auth module and the required 'base url':
-    NSURL* baseURL = [NSURL URLWithString:@"https://todoauth-aerogear.rhcloud.com/todo-server/"];
+    NSURL* baseURL = [NSURL URLWithString:@"http://localhost:8080/todo-server/"];
     id<AGAuthenticationModule> myMod = [authenticator auth:^(id<AGAuthConfig> config) {
         [config name:@"authMod"];
         [config baseURL:baseURL];
@@ -114,12 +114,13 @@
     }
     
 }
+
 -(void) testSaveTask {
     // create an authenticator object
     AGAuthenticator* authenticator = [AGAuthenticator authenticator];
     
     // add a new auth module and the required 'base url':
-    NSURL* baseURL = [NSURL URLWithString:@"https://todoauth-aerogear.rhcloud.com/todo-server/"];
+    NSURL* baseURL = [NSURL URLWithString:@"http://localhost:8080/todo-server/"];
     id<AGAuthenticationModule> myMod = [authenticator auth:^(id<AGAuthConfig> config) {
         [config name:@"authMod"];
         [config baseURL:baseURL];
@@ -135,7 +136,7 @@
         [[AGEntityMapper alloc] initForEntity:@"Task"
          // mapping the properties on the "entity" (NSManagedObject)
          // to the external representation (e.g. JSON)
-                                      mapper:@{ @"desc": @"description", @"myId": @"id"}];
+                                      mapper:@{ @"desc": @"description"}];
         
         AGCoreDataHelper *helper = [[AGCoreDataHelper alloc] initWithConfig:^(id<AGCoreDataConfig> config) {
             [config setManagedObjectModel:managedObjectModel];
@@ -148,7 +149,7 @@
         NSManagedObjectContext *context = helper.managedObjectContext;
         
         Task *task = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:context];
-        task.title = @"CD Task";
+        task.title = @"CD Task..";
         task.desc = @"Some Core Data playings..";
         
         // Save everything (causes a HTTP POST, against the AG backend)
@@ -176,7 +177,7 @@
     AGAuthenticator* authenticator = [AGAuthenticator authenticator];
     
     // add a new auth module and the required 'base url':
-    NSURL* baseURL = [NSURL URLWithString:@"https://todoauth-aerogear.rhcloud.com/todo-server/"];
+    NSURL* baseURL = [NSURL URLWithString:@"http://localhost:8080/todo-server/"];
     id<AGAuthenticationModule> myMod = [authenticator auth:^(id<AGAuthConfig> config) {
         [config name:@"authMod"];
         [config baseURL:baseURL];
@@ -241,7 +242,7 @@
     AGAuthenticator* authenticator = [AGAuthenticator authenticator];
     
     // add a new auth module and the required 'base url':
-    NSURL* baseURL = [NSURL URLWithString:@"https://todoauth-aerogear.rhcloud.com/todo-server/"];
+    NSURL* baseURL = [NSURL URLWithString:@"http://localhost:8080/todo-server/"];
     id<AGAuthenticationModule> myMod = [authenticator auth:^(id<AGAuthConfig> config) {
         [config name:@"authMod"];
         [config baseURL:baseURL];
@@ -299,7 +300,7 @@
     AGAuthenticator* authenticator = [AGAuthenticator authenticator];
     
     // add a new auth module and the required 'base url':
-    NSURL* baseURL = [NSURL URLWithString:@"https://todoauth-aerogear.rhcloud.com/todo-server/"];
+    NSURL* baseURL = [NSURL URLWithString:@"http://localhost:8080/todo-server/"];
     id<AGAuthenticationModule> myMod = [authenticator auth:^(id<AGAuthConfig> config) {
         [config name:@"authMod"];
         [config baseURL:baseURL];
@@ -364,7 +365,7 @@
     AGAuthenticator* authenticator = [AGAuthenticator authenticator];
     
     // add a new auth module and the required 'base url':
-    NSURL* baseURL = [NSURL URLWithString:@"https://todoauth-aerogear.rhcloud.com/todo-server/"];
+    NSURL* baseURL = [NSURL URLWithString:@"http://localhost:8080/todo-server/"];
     id<AGAuthenticationModule> myMod = [authenticator auth:^(id<AGAuthConfig> config) {
         [config name:@"authMod"];
         [config baseURL:baseURL];

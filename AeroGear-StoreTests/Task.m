@@ -2,7 +2,7 @@
 //  Task.m
 //  AeroGear-Store
 //
-//  Created by Matthias Wessendorf on 1/4/13.
+//  Created by Matthias Wessendorf on 1/9/13.
 //  Copyright (c) 2013 Matthias Wessendorf. All rights reserved.
 //
 
@@ -11,7 +11,8 @@
 
 @implementation Task
 
-@dynamic title;
 @dynamic desc;
+@dynamic project;
+@dynamic title;
 
 @end

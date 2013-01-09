@@ -9,11 +9,12 @@
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="project" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Tag" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Project" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="Task" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Tag" positionX="178" positionY="-90" width="128" height="73"/>
+        <element name="Task" positionX="349" positionY="-45" width="128" height="88"/>
     </elements>
 </model>
